@@ -48,12 +48,6 @@ class TR(nn.Module):
 
     def forward(self, image, vtx, seg, label, **kwargs):
         # tokenize images
-        if image.shape[0]==1:
-            image = image.transpose(0,1);
-        if vtx.shape[0]==1:
-            vtx = vtx.transpose(0,1);
-        if seg.shape[0]==1:
-            seg = seg.transpose(0,1);
         image = self.image_embder(image).flatten(-3).permute(0,2,1); # B, N, C
         image = image + self.image_pos;
         vtx = self.vtx_embder(vtx).flatten(-3).permute(0,2,1); # B, N, C
