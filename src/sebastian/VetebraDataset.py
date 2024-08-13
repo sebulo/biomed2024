@@ -63,6 +63,7 @@ class VertebraDataset(Dataset):
             # Load VTK mesh data
             image = self.load_nifti_file(img_path)
             image = torch.tensor(image, dtype=torch.float32)  
+            print(image.shape)
             image = torch.nn.Upsample(size=(256, 256, 256))(image)
 
             # Load VTK mesh data
