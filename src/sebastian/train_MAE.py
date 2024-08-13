@@ -85,9 +85,9 @@ def train():
     learning_rate = 1e-3
     batch_size = 4
     num_epochs = 50
-    num_layers = 3
-    width = 256
-    num_head = 4
+    num_layers = 2
+    width = 128
+    num_head = 2
     mask_ratio = 0.6
 
     # Load dataset
