@@ -70,13 +70,11 @@ class TR(nn.Module):
         emb = self.ln(emb);
 
         # mlm loss 
-        loss_mlm = (emb[:,1:,:] - ori).flatten().mean();
+        loss_mlm = ((emb[:,1:,:] - ori)**2).flatten().sum();
         logit = self.classifier(emb[:,0,...])
         loss_cls = nn.CrossEntropyLoss()(logit, label.long());
 
         loss = 0.2*loss_mlm + loss_cls;
-
-        print(loss, loss_mlm, loss_cls)
         return emb, mask, loss
 
 
@@ -85,9 +83,6 @@ class TR(nn.Module):
 
 def train():
     # Parameters
-    data_dir = "/work3/rapa/challenge_data/train"
-    train_list = "custom_train_list_100.txt"
-    result_dir = "/zhome/28/e/143966/ssr/biomed2024/src/results"
     learning_rate = 1e-3
     batch_size = 2
     num_epochs = 50
@@ -97,8 +92,16 @@ def train():
     mask_ratio = 0.6
 
     # Load dataset
+    data_dir = "/work3/rapa/challenge_data/train"
+    train_list = "custom_train_list_100.txt"
+    result_dir = "/zhome/28/e/143966/ssr/biomed2024/src/results"
     train_id_list_file = os.path.join(result_dir, train_list)
     train_ids = np.loadtxt(str(train_id_list_file), delimiter=",", dtype=str)
+
+    data_dir = "/work3/rapa/challenge_data/train"
+    val_list = "custom_validation_list_100.txt"
+    val_id_list_file = os.path.join(result_dir, val_list)
+    val_ids = np.loadtxt(str(val_id_list_file), delimiter=",", dtype=str)
     # Initialize dataset
     dataset = VertebraDataset(
         data_dir=data_dir,
@@ -106,15 +109,23 @@ def train():
         data_type='tr'  # or 'mesh' or 'segmentation'
     )
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    testset = VertebraDataset(
+        data_dir=data_dir,
+        file_list=val_ids,
+        data_type='tr'  # or 'mesh' or 'segmentation'
+    )
+    testloader = DataLoader(testset, batch_size=batch_size, shuffle=True)
 
     model = TR(num_layers, width, num_head, mask_ratio);
     print(model)
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
 
     model.train()
+    best_loss = 100000;
     for epoch in range(num_epochs):
         total_loss = 0
         for batch in tqdm(dataloader):
+            model.train();
             optimizer.zero_grad()
             image, vtx, seg, label = batch
             emb, mask, loss = model(image, vtx, seg, label)
@@ -122,12 +133,25 @@ def train():
             total_loss += loss.item()
             optimizer.step()
         
-        print(f"Epoch {epoch + 1}, Loss: {total_loss / len(dataloader.dataset)}")
+        print(f"Epoch {epoch + 1}, train Loss: {total_loss / len(dataloader.dataset)}")
 
-    # Save the model
-    model_path = os.path.join(result_dir, "mae_model.pth")
-    torch.save(model.state_dict(), model_path)
-    print(f"Model saved to {model_path}")
+
+        for batch in tqdm(testloader):
+            model.eval();
+            with torch.no_grad():
+                image, vtx, seg, label = batch
+                emb, mask, loss = model(image, vtx, seg, label)
+            total_loss += loss.item()
+            optimizer.step()
+        
+        print(f"Epoch {epoch + 1}, val Loss: {total_loss / len(dataloader.dataset)}")
+
+        if total_loss < best_loss:
+            best_loss = total_loss;
+            # Save the model
+            model_path = os.path.join(result_dir, "mae_model.pth")
+            torch.save(model.state_dict(), model_path)
+            print(f"Model saved to {model_path}")
 
 if __name__ == '__main__':
     train()
