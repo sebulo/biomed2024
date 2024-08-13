@@ -63,18 +63,14 @@ class VertebraDataset(Dataset):
             # Load VTK mesh data
             image = self.load_nifti_file(img_path)
             image = torch.tensor(image, dtype=torch.float32)  
-            print(image.shape)
-            image = torch.nn.Upsample(size=(256, 256, 256))(image)
 
             # Load VTK mesh data
             mesh_data = self.load_vtk_mesh(mesh_path)
             mesh_data = torch.tensor(mesh_data, dtype=torch.float32)
-            mesh_data = torch.nn.Upsample(size=(256, 256, 256))(mesh_data)
 
             # Load segmentation data (assuming .nii.gz format)
             segmentation_data = self.load_nifti_file(seg_path)
             segmentation_data = torch.tensor(segmentation_data, dtype=torch.float32)  
-            segmentation_data = torch.nn.Upsample(size=(256, 256, 256))(segmentation_data)
             return (image, mesh_data, segmentation_data, label);
 
         else:
