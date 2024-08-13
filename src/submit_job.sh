@@ -54,8 +54,8 @@ conda activate odc2024
 # # the program knows then, that it's outputting to a file
 # # and not to a screen, and also combine stdout&stderr
 # python3 helloworld.py > joboutput_$LSB_JOBID.out 2>&1
-cd /zhome/46/2/189047/projects/OutlierDetectionChallenge2024
-# python src/train_pdm_outlier_detection.py -c src/outlier-challenge-config.json -d custom_train_list_100.txt
-# python src/validate_pdm_outlier_detection.py -c src/outlier-challenge-config.json -d custom_validation_list_100.txt
-python src/test_pdm_outlier_detection.py -c src/outlier-challenge-config.json -d test_files_200.txt
+cd /zhome/46/2/189047/projects/biomed2024
+python src/train_segmentation_outlier_detection.py -c src/outlier-challenge-config_gbar_dtu.json -d custom_train_list_100.txt
+# python src/validate_pdm_outlier_detection.py -c src/outlier-challenge-config_gbar_dtu.json -d custom_validation_list_100.txt
+# python src/test_pdm_outlier_detection.py -c src/outlier-challenge-config_gbar_dtu.json -d test_files_200.txt
 # python src/submit_outlier_detections.py -c src/outlier-challenge-config.json -d test_files_200.txt

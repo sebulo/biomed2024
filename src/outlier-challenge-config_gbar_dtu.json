@@ -3,6 +3,6 @@
     "method_description": "pdm",
     "data_types": "Mesh, segmentation, image or a hybrid",
     "data_dir": "/work3/rapa/challenge_data/",
-    "result_dir": "/zhome/46/2/189047/projects/OutlierDetectionChallenge2024/challenge_results/",
+    "result_dir": "/zhome/46/2/189047/projects/biomed2024/challenge_results/",
     "challenge_server": "http://fungi.compute.dtu.dk:8080"
 }
