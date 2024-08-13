@@ -44,7 +44,7 @@ class TR(nn.Module):
         self.seg_pos = nn.Parameter(torch.empty(self.seg_context_length, width))
         nn.init.normal_(self.seg_pos, std=0.01)   
 
-        self.decoder = nn.TransformerDecoderLayer(d_model=width, nhead=num_head, batch_first=True)
+        self.decoder = nn.TransformerEncoderLayer(d_model=width, nhead=num_head, batch_first=True)
         self.classifier = nn.Linear(width, 2);
 
     def forward(self, image, vtx, seg, label, **kwargs):
