@@ -1,8 +1,8 @@
 {
-    "team_name": "ChangeYourTeamName",
-    "method_description": "ChangeYourMethodName",
-    "data_types": "Mesh, segmentation, image or a hybrid",
-    "data_dir": "D:\\OutlierChallenge2024\\challenge_data\\",
-    "result_dir": "D:\\OutlierChallenge2024\\challenge_results\\",
+    "team_name": "Team_Joris",
+    "method_description": "OOD",
+    "data_types": "Image",
+    "data_dir": "/work3/rapa/challenge_data/",
+    "result_dir": "results",
     "challenge_server":  "http://fungi.compute.dtu.dk:8080"
 }
