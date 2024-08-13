@@ -51,7 +51,7 @@ class TR(nn.Module):
         print(image.shape, vtx.shape, seg.shape, label)
         image = self.image_embder(image).flatten(-3).permute(0,2,1); # B, N, C
         image = image + self.image_pos;
-        vtx = self.vtx_embder(vtx).flatten(-2).permute(0,2,1); # B, N, C
+        vtx = self.vtx_embder(vtx.squeeze(1)).flatten(-2).permute(0,2,1); # B, N, C
         vtx = vtx + self.vtx_pos;
         seg = self.seg_embder(seg).flatten(-3).permute(0,2,1); # B, N, C
         seg = seg + self.seg_pos;
