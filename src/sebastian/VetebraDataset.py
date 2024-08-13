@@ -71,7 +71,7 @@ class VertebraDataset(Dataset):
             # Load segmentation data (assuming .nii.gz format)
             segmentation_data = self.load_nifti_file(seg_path)
             segmentation_data = torch.tensor(segmentation_data, dtype=torch.float32)
-            return (image.unsqueeze(0), mesh_data.unsqueeze(0), segmentation_data.unsqueeze(0), label);
+            return (image.unsqueeze(0), mesh_data.transpose(0,1), segmentation_data.unsqueeze(0), label);
 
         else:
             raise ValueError(f"Unsupported data type: {self.data_type}")

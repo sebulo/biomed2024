@@ -33,7 +33,7 @@ class TR(nn.Module):
         self.ln = nn.LayerNorm(width)
 
         ## vtx
-        self.vtx_embder = nn.Conv3d(1, width, 64, 64); # -> 16x16 patches
+        self.vtx_embder = nn.Conv2d(3, width, 64, 64); # -> 16x16 patches
         self.vtx_context_length = 27
         self.vtx_pos = nn.Parameter(torch.empty(self.vtx_context_length, width))
         nn.init.normal_(self.vtx_pos, std=0.01)      
@@ -51,7 +51,7 @@ class TR(nn.Module):
         print(image.shape, vtx.shape, seg.shape, label)
         image = self.image_embder(image).flatten(-3).permute(0,2,1); # B, N, C
         image = image + self.image_pos;
-        vtx = self.vtx_embder(vtx).flatten(-3).permute(0,2,1); # B, N, C
+        vtx = self.vtx_embder(vtx).flatten(-2).permute(0,2,1); # B, N, C
         vtx = vtx + self.vtx_pos;
         seg = self.seg_embder(seg).flatten(-3).permute(0,2,1); # B, N, C
         seg = seg + self.seg_pos;
