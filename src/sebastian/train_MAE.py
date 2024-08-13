@@ -80,7 +80,7 @@ class TR(nn.Module):
 
 def train():
     # Parameters
-    data_dir = "/work3/rapa/challenge_data"
+    data_dir = "/work3/rapa/challenge_data/train"
     train_list = "custom_train_list_100.txt"
     result_dir = "/zhome/28/e/143966/ssr/biomed2024/src/results"
     learning_rate = 1e-3
