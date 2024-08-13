@@ -72,9 +72,11 @@ class TR(nn.Module):
         # mlm loss 
         loss_mlm = (emb[:,1:,:] - ori).flatten().mean();
         logit = self.classifier(emb[:,0,...])
-        loss_cls = nn.CrossEntropyLoss()(logit, label);
+        loss_cls = nn.CrossEntropyLoss()(logit, label.long());
 
         loss = 0.2*loss_mlm + loss_cls;
+
+        print(loss, loss_mlm, loss_cls)
         return emb, mask, loss
 
 
