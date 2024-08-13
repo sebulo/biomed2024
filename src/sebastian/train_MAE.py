@@ -6,6 +6,7 @@ import numpy as np
 import os
 from pathlib import Path
 import argparse
+from tqdm import tqdm
 # from dtu_spine_config import DTUConfig
 
 from VetebraDataset import VertebraDataset
@@ -109,7 +110,7 @@ def train():
     model.train()
     for epoch in range(num_epochs):
         total_loss = 0
-        for batch in dataloader:
+        for batch in tqdm(dataloader):
             optimizer.zero_grad()
             image, vtx, seg, label = batch
             emb, mask, loss = model(image, vtx, seg, label)
