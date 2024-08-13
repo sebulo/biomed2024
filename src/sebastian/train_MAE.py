@@ -98,7 +98,7 @@ def train():
     dataset = VertebraDataset(
         data_dir=data_dir,
         file_list=train_ids,
-        data_type='image'  # or 'mesh' or 'segmentation'
+        data_type='tr'  # or 'mesh' or 'segmentation'
     )
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
