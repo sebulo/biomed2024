@@ -5,7 +5,7 @@
     },
     {
         "scan_id": "sample_0797",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0185",
@@ -13,11 +13,11 @@
     },
     {
         "scan_id": "sample_0013",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0051",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0748",
@@ -25,7 +25,7 @@
     },
     {
         "scan_id": "sample_0201",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0765",
@@ -49,11 +49,11 @@
     },
     {
         "scan_id": "sample_0644",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0187",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0261",
@@ -65,19 +65,19 @@
     },
     {
         "scan_id": "sample_1001",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0403",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0137",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0199",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0461",
@@ -85,7 +85,7 @@
     },
     {
         "scan_id": "sample_0344",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0522",
@@ -101,11 +101,11 @@
     },
     {
         "scan_id": "sample_0713",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0075",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0557",
@@ -117,11 +117,11 @@
     },
     {
         "scan_id": "sample_0599",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0594",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0771",
@@ -129,7 +129,7 @@
     },
     {
         "scan_id": "sample_0503",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0787",
@@ -141,11 +141,11 @@
     },
     {
         "scan_id": "sample_0428",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0307",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0650",
@@ -153,7 +153,7 @@
     },
     {
         "scan_id": "sample_0431",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0875",
@@ -177,11 +177,11 @@
     },
     {
         "scan_id": "sample_0289",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0820",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0631",
@@ -193,7 +193,7 @@
     },
     {
         "scan_id": "sample_0998",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0802",
@@ -213,11 +213,11 @@
     },
     {
         "scan_id": "sample_0868",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_1069",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0848",
@@ -225,7 +225,7 @@
     },
     {
         "scan_id": "sample_0406",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0263",
@@ -237,15 +237,15 @@
     },
     {
         "scan_id": "sample_0741",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0052",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0309",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0458",
@@ -257,23 +257,23 @@
     },
     {
         "scan_id": "sample_0392",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0642",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0792",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0130",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0063",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0448",
@@ -289,7 +289,7 @@
     },
     {
         "scan_id": "sample_0184",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0669",
@@ -297,7 +297,7 @@
     },
     {
         "scan_id": "sample_0584",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0408",
@@ -317,7 +317,7 @@
     },
     {
         "scan_id": "sample_0256",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0119",
@@ -325,7 +325,7 @@
     },
     {
         "scan_id": "sample_0838",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0872",
@@ -341,15 +341,15 @@
     },
     {
         "scan_id": "sample_1010",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0876",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_1088",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0807",
@@ -357,15 +357,15 @@
     },
     {
         "scan_id": "sample_0332",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0369",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0651",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0620",
@@ -385,11 +385,11 @@
     },
     {
         "scan_id": "sample_0158",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0338",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0697",
@@ -397,7 +397,7 @@
     },
     {
         "scan_id": "sample_0395",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0360",
@@ -405,23 +405,23 @@
     },
     {
         "scan_id": "sample_1082",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0006",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0411",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0354",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_1016",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0576",
@@ -433,15 +433,15 @@
     },
     {
         "scan_id": "sample_1049",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0596",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0394",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0689",
@@ -461,19 +461,19 @@
     },
     {
         "scan_id": "sample_0329",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0088",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0643",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0223",
-        "outlier": 1
+        "outlier": 0
     },
     {
         "scan_id": "sample_0150",
@@ -481,23 +481,23 @@
     },
     {
         "scan_id": "sample_0390",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0882",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0124",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0508",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0418",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0479",
@@ -521,7 +521,7 @@
     },
     {
         "scan_id": "sample_0617",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0720",
@@ -537,11 +537,11 @@
     },
     {
         "scan_id": "sample_0084",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0073",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0437",
@@ -549,7 +549,7 @@
     },
     {
         "scan_id": "sample_0782",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0102",
@@ -573,11 +573,11 @@
     },
     {
         "scan_id": "sample_0811",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0757",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0009",
@@ -601,11 +601,11 @@
     },
     {
         "scan_id": "sample_0313",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0364",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0143",
@@ -613,19 +613,19 @@
     },
     {
         "scan_id": "sample_1079",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0372",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0733",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0536",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0776",
@@ -637,7 +637,7 @@
     },
     {
         "scan_id": "sample_0072",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0725",
@@ -645,15 +645,15 @@
     },
     {
         "scan_id": "sample_0273",
-        "outlier": 0
-    },
-    {
-        "scan_id": "sample_0917",
         "outlier": 1
     },
     {
-        "scan_id": "sample_0907",
+        "scan_id": "sample_0917",
         "outlier": 0
+    },
+    {
+        "scan_id": "sample_0907",
+        "outlier": 1
     },
     {
         "scan_id": "sample_0462",
@@ -661,7 +661,7 @@
     },
     {
         "scan_id": "sample_1006",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_1080",
@@ -673,11 +673,11 @@
     },
     {
         "scan_id": "sample_0709",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0324",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0630",
@@ -685,11 +685,11 @@
     },
     {
         "scan_id": "sample_0269",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0927",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0086",
@@ -697,7 +697,7 @@
     },
     {
         "scan_id": "sample_0080",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0312",
@@ -705,11 +705,11 @@
     },
     {
         "scan_id": "sample_0336",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0779",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0235",
@@ -721,11 +721,11 @@
     },
     {
         "scan_id": "sample_0768",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0230",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_1033",
@@ -733,11 +733,11 @@
     },
     {
         "scan_id": "sample_0573",
-        "outlier": 1
+        "outlier": 0
     },
     {
         "scan_id": "sample_1005",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_1030",
@@ -753,7 +753,7 @@
     },
     {
         "scan_id": "sample_0739",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0552",
@@ -769,7 +769,7 @@
     },
     {
         "scan_id": "sample_0605",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0675",
@@ -777,19 +777,19 @@
     },
     {
         "scan_id": "sample_0177",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_1013",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0293",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0440",
-        "outlier": 0
+        "outlier": 1
     },
     {
         "scan_id": "sample_0341",

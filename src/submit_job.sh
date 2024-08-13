@@ -55,7 +55,7 @@ conda activate odc2024
 # # and not to a screen, and also combine stdout&stderr
 # python3 helloworld.py > joboutput_$LSB_JOBID.out 2>&1
 cd /zhome/46/2/189047/projects/biomed2024
-python src/train_segmentation_outlier_detection.py -c src/outlier-challenge-config_gbar_dtu.json -d custom_train_list_100.txt
-# python src/validate_pdm_outlier_detection.py -c src/outlier-challenge-config_gbar_dtu.json -d custom_validation_list_100.txt
-# python src/test_pdm_outlier_detection.py -c src/outlier-challenge-config_gbar_dtu.json -d test_files_200.txt
-# python src/submit_outlier_detections.py -c src/outlier-challenge-config.json -d test_files_200.txt
+# python src/train_xgboost_outlier_detection.py -c src/outlier-challenge-config_gbar_dtu.json -d train_files.txt # custom_train_list_100.txt
+# python src/validate_xgboost_outlier_detection.py -c src/outlier-challenge-config_gbar_dtu.json -d custom_validation_list_100.txt
+python src/test_xgboost_outlier_detection.py -c src/outlier-challenge-config_gbar_dtu.json -d test_files_200.txt
+# python src/submit_outlier_detections.py -c src/outlier-challenge-config_gbar_dtu.json -d test_files_200.txt
