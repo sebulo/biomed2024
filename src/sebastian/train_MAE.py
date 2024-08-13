@@ -53,7 +53,7 @@ class TR(nn.Module):
         image = image + self.image_pos;
         vtx = self.vtx_embder(vtx); # B, N, C
         vtx = nn.AdaptiveAvgPool1d(27)(vtx) + nn.AdaptiveMaxPool1d(27)(vtx);
-        vtx = vtx + self.vtx_pos;
+        vtx = vtx.transpose(1,2) + self.vtx_pos;
         seg = self.seg_embder(seg).flatten(-3).permute(0,2,1); # B, N, C
         seg = seg + self.seg_pos;
         ori = self.ln(torch.cat((image, vtx, seg), dim=1));
