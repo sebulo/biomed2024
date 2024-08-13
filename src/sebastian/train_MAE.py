@@ -25,7 +25,7 @@ class TR(nn.Module):
         self.token = nn.Parameter(scale * torch.randn(width))
 
         ## Image
-        self.image_embder = nn.Conv3d(1, width, 64, 64); # -> 16x16 patches
+        self.image_embder = nn.Conv3d(1, width, 32, 32); # -> 16x16 patches
         self.image_context_length = 196
         self.image_pos = nn.Parameter(torch.empty(self.image_context_length, width))
         nn.init.normal_(self.image_pos, std=0.01)
@@ -33,13 +33,13 @@ class TR(nn.Module):
         self.ln = nn.LayerNorm(width)
 
         ## vtx
-        self.vtx_embder = nn.Conv3d(1, width, 64, 64); # -> 16x16 patches
+        self.vtx_embder = nn.Conv3d(1, width, 32, 32); # -> 16x16 patches
         self.vtx_context_length = 64
         self.vtx_pos = nn.Parameter(torch.empty(self.vtx_context_length, width))
         nn.init.normal_(self.vtx_pos, std=0.01)      
 
         ## seg
-        self.seg_embder = nn.Conv3d(1, width, 64, 64); # -> 16x16 patches
+        self.seg_embder = nn.Conv3d(1, width, 32, 32); # -> 16x16 patches
         self.seg_context_length = 64
         self.seg_pos = nn.Parameter(torch.empty(self.seg_context_length, width))
         nn.init.normal_(self.seg_pos, std=0.01)   
