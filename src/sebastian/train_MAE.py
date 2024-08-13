@@ -53,6 +53,7 @@ class TR(nn.Module):
         image = image + self.image_pos;
         vtx = self.vtx_embder(vtx); # B, N, C
         vtx = nn.AdaptiveAvgPool1d(27)(vtx.transpose(1,2)) + nn.AdaptiveMaxPool1d(27)(vtx.transpose(1,2));
+        print(vtx.shape, self.vtx_pos.shape)
         vtx = vtx + self.vtx_pos;
         seg = self.seg_embder(seg).flatten(-3).permute(0,2,1); # B, N, C
         seg = seg + self.seg_pos;
