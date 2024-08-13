@@ -48,6 +48,9 @@ class TR(nn.Module):
 
     def forward(self, image, vtx, seg, label, **kwargs):
         # tokenize images
+        image = image.transpose(0,1);
+        vtx = vtx.transpose(0,1);
+        seg = seg.transpose(0,1);
         image = self.image_embder(image).flatten(-3).permute(0,2,1); # B, N, C
         image = image + self.image_pos;
         vtx = self.vtx_embder(vtx).flatten(-3).permute(0,2,1); # B, N, C
@@ -85,7 +88,7 @@ def train():
     train_list = "custom_train_list_100.txt"
     result_dir = "/zhome/28/e/143966/ssr/biomed2024/src/results"
     learning_rate = 1e-3
-    batch_size = 16
+    batch_size = 32
     num_epochs = 50
     num_layers = 3
     width = 256
