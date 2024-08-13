@@ -50,13 +50,12 @@ class TR(nn.Module):
         # tokenize images
         print(image.shape, vtx.shape, seg.shape, label)
         image = self.image_embder(image).flatten(-3).permute(0,2,1); # B, N, C
-        image = image + self.image_pos;
+        image = image + self.image_pos.unsqueeze(0);
         vtx = self.vtx_embder(vtx); # B, N, C
         vtx = nn.AdaptiveAvgPool1d(27)(vtx.transpose(1,2)) + nn.AdaptiveMaxPool1d(27)(vtx.transpose(1,2));
-        print(vtx.shape, self.vtx_pos.shape)
-        vtx = vtx + self.vtx_pos;
+        vtx = vtx.transpose(1,2) + self.vtx_pos.unsqueeze(0);
         seg = self.seg_embder(seg).flatten(-3).permute(0,2,1); # B, N, C
-        seg = seg + self.seg_pos;
+        seg = seg + self.seg_pos.unsqueeze(0);
         ori = self.ln(torch.cat((image, vtx, seg), dim=1));
         if self.training:
             # apply random mask
