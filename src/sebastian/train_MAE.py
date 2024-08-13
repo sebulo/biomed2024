@@ -102,7 +102,6 @@ def train():
     )
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
-    input_dim = dataset[0].numel()  # Assuming all inputs have the same number of elements
     model = TR(num_layers, width, num_head, mask_ratio);
     print(model)
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)

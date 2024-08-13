@@ -62,15 +62,15 @@ class VertebraDataset(Dataset):
                 seg_path = np.random.choice(glob(os.path.join(self.data_dir, "dist_fields", f"{sample_id}_distance_field_crop*outlier*.nii.gz")))
             # Load VTK mesh data
             image = self.load_nifti_file(img_path)
-            image = torch.tensor(image, dtype=torch.float32)  
+            image = torch.tensor(image, dtype=torch.float32).unsqueeze(1)  
 
             # Load VTK mesh data
             mesh_data = self.load_vtk_mesh(mesh_path)
-            mesh_data = torch.tensor(mesh_data, dtype=torch.float32)
+            mesh_data = torch.tensor(mesh_data, dtype=torch.float32).unsqueeze(1)
 
             # Load segmentation data (assuming .nii.gz format)
             segmentation_data = self.load_nifti_file(seg_path)
-            segmentation_data = torch.tensor(segmentation_data, dtype=torch.float32)  
+            segmentation_data = torch.tensor(segmentation_data, dtype=torch.float32).unsqueeze(1)  
             return (image, mesh_data, segmentation_data, label);
 
         else:
