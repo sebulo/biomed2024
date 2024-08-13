@@ -69,7 +69,7 @@ class TR(nn.Module):
         emb = self.ln(emb);
 
         # mlm loss 
-        loss_mlm = ((emb[:,1:,:] - ori)**2).flatten().sum();
+        loss_mlm = ((emb[:,1:,:] - ori)**2).flatten().mean();
         logit = self.classifier(emb[:,0,...])
         loss_cls = nn.CrossEntropyLoss()(logit, label.long());
 
@@ -98,7 +98,7 @@ def train():
     train_ids = np.loadtxt(str(train_id_list_file), delimiter=",", dtype=str)
 
     data_dir = "/work3/rapa/challenge_data/train"
-    val_list = "custom_validation_list_100.txt"
+    val_list = "custom_train_list_100.txt"
     val_id_list_file = os.path.join(result_dir, val_list)
     val_ids = np.loadtxt(str(val_id_list_file), delimiter=",", dtype=str)
     # Initialize dataset
