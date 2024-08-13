@@ -118,6 +118,7 @@ def train():
     model = TR(num_layers, width, num_head, mask_ratio);
     print(model)
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs, eta_min=1e-6, verbose=True)
 
     model.train()
     best_loss = 100000;
@@ -131,6 +132,7 @@ def train():
             loss.backward()
             total_loss += loss.item()
             optimizer.step()
+        scheduler.step();
         
         print(f"Epoch {epoch + 1}, train Loss: {total_loss / len(dataloader.dataset)}")
 
