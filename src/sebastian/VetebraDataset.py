@@ -7,13 +7,14 @@ import vtk
 from vtk.util.numpy_support import vtk_to_numpy
 
 class VertebraDataset(Dataset):
-    def __init__(self, data_dir, file_list, transform=None, data_type='image'):
+    def __init__(self, data_dir, file_list, transform=None, data_type='tr'):
         """
         Args:
             data_dir (str): Directory with all the data files.
             file_list (list): List of file identifiers (e.g., ['sample_0017', 'sample_0018', ...]).
             transform (callable, optional): Optional transform to be applied on a sample.
             data_type (str): The type of data to load: 'image', 'mesh', or 'segmentation'.
+            (new data type): 'tr', means convert everything to tokens
         """
         self.data_dir = data_dir
         self.file_list = file_list
@@ -45,6 +46,29 @@ class VertebraDataset(Dataset):
             seg_path = os.path.join(self.data_dir, f"{sample_id}_segmentation.nii.gz")
             segmentation_data = self.load_nifti_file(seg_path)
             return torch.tensor(segmentation_data, dtype=torch.float32)
+
+        elif self.data_type == 'tr':
+            # load everything and convert them into tokens
+            # Load image data (assuming .png format)
+            img_path = os.path.join(self.data_dir, f"{sample_id}_image.png")
+            image = Image.open(img_path).convert('RGB')
+            if self.transform:
+                image = self.transform(image)
+
+            # Load VTK mesh data
+            mesh_path = os.path.join(self.data_dir, f"{sample_id}_surface.vtk")
+            mesh_data = self.load_vtk_mesh(mesh_path)
+            mesh_data = torch.tensor(mesh_data, dtype=torch.float32)
+            mesh_data = torch.nn.Upsample(size=(256, 256, 256))(mesh_data)
+
+            # Load segmentation data (assuming .nii.gz format)
+            seg_path = os.path.join(self.data_dir, f"{sample_id}_segmentation.nii.gz")
+            segmentation_data = self.load_nifti_file(seg_path)
+            segmentation_data = torch.tensor(segmentation_data, dtype=torch.float32)  
+            segmentation_data = torch.nn.Upsample(size=(256, 256, 256))(segmentation_data)
+
+            label = 'outlier' in img_path     
+            return (image, mesh_data, segmentation_data, label);
 
         else:
             raise ValueError(f"Unsupported data type: {self.data_type}")
