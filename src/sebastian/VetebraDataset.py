@@ -71,6 +71,7 @@ class VertebraDataset(Dataset):
             # Load segmentation data (assuming .nii.gz format)
             segmentation_data = self.load_nifti_file(seg_path)
             segmentation_data = torch.tensor(segmentation_data, dtype=torch.float32)
+            print(image.shape, mesh_data.shape, segmentation_data.shape)
             return (image, mesh_data, segmentation_data, label);
 
         else:

@@ -91,7 +91,7 @@ def train():
     train_list = "custom_train_list_100.txt"
     result_dir = "/zhome/28/e/143966/ssr/biomed2024/src/results"
     learning_rate = 1e-3
-    batch_size = 16
+    batch_size = 2
     num_epochs = 50
     num_layers = 3
     width = 256
