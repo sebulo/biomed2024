@@ -24,7 +24,7 @@ class TR(nn.Module):
         self.token = nn.Parameter(scale * torch.randn(width))
 
         ## Image
-        self.image_embder = nn.Conv2d(3, width, 16, 16); # -> 16x16 patches
+        self.image_embder = nn.Conv3d(1, width, 64, 64); # -> 16x16 patches
         self.image_context_length = 196
         self.image_pos = nn.Parameter(torch.empty(self.image_context_length, width))
         nn.init.normal_(self.image_pos, std=0.01)
@@ -47,7 +47,7 @@ class TR(nn.Module):
 
     def forward(self, image, vtx, seg, label, **kwargs):
         # tokenize images
-        image = self.image_embder(image).flatten(-2).permute(0,2,1); # B, N, C
+        image = self.image_embder(image).flatten(-3).permute(0,2,1); # B, N, C
         image = image + self.image_pos;
         vtx = self.vtx_embder(vtx).flatten(-3).permute(0,2,1); # B, N, C
         vtx = vtx + self.vtx_pos;

@@ -5,6 +5,7 @@ from torch.utils.data import Dataset
 from PIL import Image
 import vtk
 from vtk.util.numpy_support import vtk_to_numpy
+from glob import glob
 
 class VertebraDataset(Dataset):
     def __init__(self, data_dir, file_list, transform=None, data_type='tr'):
@@ -50,24 +51,29 @@ class VertebraDataset(Dataset):
         elif self.data_type == 'tr':
             # load everything and convert them into tokens
             # Load image data (assuming .png format)
-            img_path = os.path.join(self.data_dir, f"{sample_id}_image.png")
-            image = Image.open(img_path).convert('RGB')
-            if self.transform:
-                image = self.transform(image)
+            label = np.random.rand()<0.5;
+            if(label):
+                img_path = os.path.join(self.data_dir, "crops", f"{sample_id}_crop.nii.gz")
+                mesh_path = os.path.join(self.data_dir, "surfaces", f"{sample_id}_surface.vtk")
+                seg_path = os.path.join(self.data_dir, "dist_fields", f"{sample_id}_distance_field_crop.nii.gz")
+            else:
+                img_path = np.random.choice(glob(os.path.join(self.data_dir, "crops", f"{sample_id}_crop*outlier*.nii.gz")))
+                mesh_path = np.random.choice(glob(os.path.join(self.data_dir, "surfaces", f"{sample_id}_surface*outlier*.vtk")))
+                seg_path = np.random.choice(glob(os.path.join(self.data_dir, "dist_fields", f"{sample_id}_distance_field_crop*outlier*.nii.gz")))
+            # Load VTK mesh data
+            image = self.load_nifti_file(img_path)
+            image = torch.tensor(image, dtype=torch.float32)  
+            image = torch.nn.Upsample(size=(256, 256, 256))(image)
 
             # Load VTK mesh data
-            mesh_path = os.path.join(self.data_dir, f"{sample_id}_surface.vtk")
             mesh_data = self.load_vtk_mesh(mesh_path)
             mesh_data = torch.tensor(mesh_data, dtype=torch.float32)
             mesh_data = torch.nn.Upsample(size=(256, 256, 256))(mesh_data)
 
             # Load segmentation data (assuming .nii.gz format)
-            seg_path = os.path.join(self.data_dir, f"{sample_id}_segmentation.nii.gz")
             segmentation_data = self.load_nifti_file(seg_path)
             segmentation_data = torch.tensor(segmentation_data, dtype=torch.float32)  
             segmentation_data = torch.nn.Upsample(size=(256, 256, 256))(segmentation_data)
-
-            label = 'outlier' in img_path     
             return (image, mesh_data, segmentation_data, label);
 
         else:
