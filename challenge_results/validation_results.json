@@ -1,602 +1,402 @@
 [
     {
         "scan_id": "sample_0795",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0622",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0560",
-        "outlier": 0,
-        "outlier_probability": 0.8079383969306946,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0645",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0606",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0509",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0844",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0816",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0339",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0371",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0973",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0583",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0267",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0447",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0753",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1090",
-        "outlier": 1,
-        "outlier_probability": 0.9716514348983765,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0699",
-        "outlier": 1,
-        "outlier_probability": 0.9760549664497375,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0952",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0941",
-        "outlier": 1,
-        "outlier_probability": 0.9716514348983765,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0886",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0435",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0981",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0810",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0311",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1015",
-        "outlier": 0,
-        "outlier_probability": 0.8079383969306946,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0033",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0068",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0647",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1004",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0207",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0903",
-        "outlier": 1,
-        "outlier_probability": 0.9760549664497375,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0863",
-        "outlier": 1,
-        "outlier_probability": 0.9623227715492249,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0870",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0186",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0249",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1067",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0951",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0547",
-        "outlier": 0,
-        "outlier_probability": 0.5878404974937439,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0577",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1038",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0057",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1071",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0066",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0018",
-        "outlier": 1,
-        "outlier_probability": 0.9760549664497375,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1077",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0218",
-        "outlier": 0,
-        "outlier_probability": 0.8079383969306946,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0874",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0658",
-        "outlier": 1,
-        "outlier_probability": 0.9760549664497375,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0851",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0183",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0806",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0420",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0942",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0265",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1021",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0734",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0149",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0241",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0507",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0486",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0174",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0690",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0912",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0451",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0352",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0635",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0110",
-        "outlier": 1,
-        "outlier_probability": 0.9681278467178345,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0921",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0524",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0047",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0592",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1036",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0616",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0785",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0542",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0965",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0405",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_1008",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1044",
-        "outlier": 0,
-        "outlier_probability": 0.8079383969306946,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0020",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0397",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0571",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0846",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0347",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0359",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0208",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0656",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1086",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1020",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0500",
-        "outlier": 1,
-        "outlier_probability": 0.8524411916732788,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0399",
-        "outlier": 0,
-        "outlier_probability": 0.8114944696426392,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1009",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0985",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0468",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0401",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0591",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0884",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 0
     },
     {
         "scan_id": "sample_0506",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_1024",
-        "outlier": 1,
-        "outlier_probability": 0.8334124684333801,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     },
     {
         "scan_id": "sample_0914",
-        "outlier": 0,
-        "outlier_probability": 0.4148688316345215,
-        "outlier_threshold": 0.8334124684333801
+        "outlier": 1
     }
 ]
