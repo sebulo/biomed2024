@@ -25,7 +25,7 @@ class TR(nn.Module):
 
         ## Image
         self.image_embder = nn.Conv3d(1, width, 32, 32); # -> 16x16 patches
-        self.image_context_length = 27*4
+        self.image_context_length = 343
         self.image_pos = nn.Parameter(torch.empty(self.image_context_length, width))
         nn.init.normal_(self.image_pos, std=0.01)
         self.tr = nn.TransformerEncoder(encoder_layer, num_layers)
@@ -42,7 +42,7 @@ class TR(nn.Module):
 
         ## seg
         self.seg_embder = nn.Conv3d(1, width, 32, 32); # -> 16x16 patches
-        self.seg_context_length = 27*4
+        self.seg_context_length = 343
         self.seg_pos = nn.Parameter(torch.empty(self.seg_context_length, width))
         nn.init.normal_(self.seg_pos, std=0.01)   
 
