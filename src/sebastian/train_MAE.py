@@ -79,7 +79,7 @@ class TR(nn.Module):
 def train():
     # Parameters
     learning_rate = 1e-3
-    batch_size = 8
+    batch_size = 4
     num_epochs = 200
     num_layers = 3
     width = 256
