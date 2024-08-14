@@ -76,7 +76,7 @@ class TR(nn.Module):
         loss_mlm = ((rec - ori)**2).flatten().mean();
         logit = self.classifier(emb[:,0,...])
         loss_cls = nn.CrossEntropyLoss()(logit, label.long());
-        loss = 0.5*loss_mlm + loss_cls;
+        loss = loss_mlm + loss_cls;
         return emb, mask, loss, logit
 
 def train():
@@ -87,7 +87,7 @@ def train():
     num_layers = 3
     width = 256
     num_head = 4
-    mask_ratio = 0.6
+    mask_ratio = 0.8
 
     # Load dataset
     data_dir = "/work3/rapa/challenge_data/train"
