@@ -40,7 +40,7 @@ def test():
 
 
     model = TR(num_layers, width, num_head, mask_ratio);
-    model.load_state_dict(torch.load('../results//mae_model_0.7843.pth'))
+    model.load_state_dict(torch.load('../results/mae_model_0.8000.pth'))
     print(model)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = model.to(device);
