@@ -51,7 +51,7 @@ class TR(nn.Module):
         image = self.image_embder(image).flatten(-3).permute(0,2,1); # B, N, C
         image = image + self.image_pos.unsqueeze(0);
         vtx = self.vtx_embder(vtx); # B, N, C
-        vtx = torch.max(vtx, dim=1)[0].unsqueeze(1) + nn.mean(vtx, dim=1).unsqueeze(1);
+        vtx = torch.max(vtx, dim=1)[0].unsqueeze(1) + torch.mean(vtx, dim=1).unsqueeze(1);
         vtx = vtx.transpose(1,2) + self.vtx_pos.unsqueeze(0);
         seg = self.seg_embder(seg).flatten(-3).permute(0,2,1); # B, N, C
         seg = seg + self.seg_pos.unsqueeze(0);
