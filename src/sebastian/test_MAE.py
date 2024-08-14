@@ -40,7 +40,7 @@ def test():
 
 
     model = TR(num_layers, width, num_head, mask_ratio);
-    model.load_state_dict(torch.load('../results/mae_model.pth'))
+    model.load_state_dict(torch.load('../results/mae_model_0.8000.pth'))
     print(model)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = model.to(device);
@@ -59,7 +59,7 @@ def test():
     print(probs.shape)
     print(labels.shape)
     np.save('prob.npy', probs)
-    preds = probs > 0.3;
+    preds = probs > 0.15;
     print(preds)
     print(accuracy_score(labels, preds), precision_score(labels, preds), recall_score(labels, preds), f1_score(labels, preds))
 
