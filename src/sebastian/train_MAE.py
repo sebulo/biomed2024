@@ -68,17 +68,16 @@ class TR(nn.Module):
         else:
             emb = ori
             mask = None
-        emb = torch.cat((self.token.unsqueeze(0) + torch.zeros(emb.shape[0], 1, emb.shape[-1], dtype=emb.dtype, device=emb.device), emb), dim=1);
-        emb = self.tr(emb)
-        rec = self.decoder(ori.clone(), emb[:,1:,:]);
+        emb_ = torch.cat((self.token.unsqueeze(0) + torch.zeros(emb.shape[0], 1, emb.shape[-1], dtype=emb.dtype, device=emb.device), emb), dim=1);
+        emb_ = self.tr(emb_)
+        rec = self.decoder(emb.clone(), emb_[:,1:,:]);
         rec = self.ln(rec)
         # mlm loss 
-        loss_mlm = ((rec[:,:,:] - ori)**2).flatten().mean();
+        loss_mlm = ((rec - ori)**2).flatten().mean();
         logit = self.classifier(emb[:,0,...])
         loss_cls = nn.CrossEntropyLoss()(logit, label.long());
         loss = 0.5*loss_mlm + loss_cls;
         return emb, mask, loss, logit
-
 
 def train():
     # Parameters
@@ -98,7 +97,7 @@ def train():
     train_ids = np.loadtxt(str(train_id_list_file), delimiter=",", dtype=str)
 
     data_dir = "/work3/rapa/challenge_data/train"
-    val_list = "custom_train_list_100.txt"
+    val_list = "custom_validation_list_100.txt"
     val_id_list_file = os.path.join(result_dir, val_list)
     val_ids = np.loadtxt(str(val_id_list_file), delimiter=",", dtype=str)
     # Initialize dataset
