@@ -1,7 +1,7 @@
 {
     "team_name": "Team_Joris",
-    "method_description": "MMTR + Align before fusion + MIM@30e",
-    "data_types": "Image",
+    "method_description": "Random guess",
+    "data_types": "None",
     "data_dir": "/work3/rapa/challenge_data/",
     "result_dir": "results",
     "challenge_server":  "http://fungi.compute.dtu.dk:8080"
