@@ -59,7 +59,7 @@ def test():
     print(probs.shape)
     print(labels.shape)
     np.save('prob.npy', probs)
-    preds = probs > 0.38;
+    preds = probs > 0.1;
     print(preds)
     print(accuracy_score(labels, preds), precision_score(labels, preds), recall_score(labels, preds), f1_score(labels, preds))
 
