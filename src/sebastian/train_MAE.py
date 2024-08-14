@@ -83,7 +83,7 @@ def train():
     num_epochs = 200
     num_layers = 3
     width = 256
-    num_head = 4
+    num_head = 2
     mask_ratio = 0.6
 
     # Load dataset
