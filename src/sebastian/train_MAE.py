@@ -83,11 +83,11 @@ def train():
     # Parameters
     learning_rate = 1e-3
     batch_size = 8
-    num_epochs = 20
+    num_epochs = 100
     num_layers = 3
     width = 256
     num_head = 4
-    mask_ratio = 0.1
+    mask_ratio = 0.3
 
     # Load dataset
     data_dir = "/work3/rapa/challenge_data/train"
