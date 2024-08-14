@@ -65,12 +65,11 @@ class TR(nn.Module):
             emb = ori
             mask = None
         emb = torch.cat((self.token.unsqueeze(0) + torch.zeros(emb.shape[0], 1, emb.shape[-1], dtype=emb.dtype, device=emb.device), emb), dim=1);
-        emb = self.tr(emb);
+        emb = self.tr(emb)
         rec = self.decoder(ori.clone(), emb[:,1:,:]);
         rec = self.ln(rec)
         # mlm loss 
-        print(rec.shape, ori.shape)
-        loss_mlm = ((rec[:,1:,:] - ori)**2).flatten().mean();
+        loss_mlm = ((rec[:,:,:] - ori)**2).flatten().mean();
         logit = self.classifier(emb[:,0,...])
         loss_cls = nn.CrossEntropyLoss()(logit, label.long());
         loss = 0.5*loss_mlm + loss_cls;
