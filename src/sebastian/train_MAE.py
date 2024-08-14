@@ -43,7 +43,7 @@ class TR(nn.Module):
         nn.init.normal_(self.seg_pos, std=0.01)   
 
         decoder_layer = nn.TransformerDecoderLayer(d_model=width, nhead=num_head, batch_first=True)
-        self.decoder = nn.TransformerDecoder(decoder_layer, num_layers=num_layers)
+        self.decoder = nn.TransformerDecoder(decoder_layer, num_layers=2)
         self.classifier = nn.Linear(width, 2);
 
     def forward(self, image, vtx, seg, label, **kwargs):
@@ -66,7 +66,7 @@ class TR(nn.Module):
             mask = None
         emb = torch.cat((self.token.unsqueeze(0) + torch.zeros(emb.shape[0], 1, emb.shape[-1], dtype=emb.dtype, device=emb.device), emb), dim=1);
         emb = self.tr(emb);
-        rec = self.decoder(ori, emb);
+        rec = self.decoder(ori, emb[:,1:,:]);
         rec = self.ln(rec)
         # mlm loss 
         loss_mlm = ((rec[:,1:,:] - ori)**2).flatten().mean();
