@@ -7,11 +7,15 @@ if __name__=="__main__":
     with open('../results/test_files_200.txt', 'r') as f:
         lines = f.read()
     lines = lines.split('\n')[:-1];
+    ds = []
     for i, line in enumerate(lines, 0):
         prob = probs[i];
         d = {
-        "scan_id": lines,
-        "outlier": 0,
-        "outlier_probability": 0.29324252683460816,
-        "outlier_threshold": 0.392965204318129
-    },
+        "scan_id": line,
+        "outlier": int(prob>0.15),
+        "outlier_probability": prob,
+        "outlier_threshold": 0.15
+        }  
+        ds.append(d)
+    with open('../results/try.json', 'w') as f:
+        json.dump(ds, f)
