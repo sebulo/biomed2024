@@ -8,6 +8,7 @@ from pathlib import Path
 import argparse
 from tqdm import tqdm
 from VetebraDataset import VertebraDataset
+from sklearn.metrics import accuracy_score, f1_score
 
 
 # Define the ALBEF model
@@ -31,8 +32,11 @@ class TR(nn.Module):
         self.ln = nn.LayerNorm(width)
 
         ## vtx
-        self.vtx_embder = nn.Linear(3, width); # -> 16x16 patches
-        self.vtx_context_length = 1
+        self.vtx_embder = nn.Sequential(nn.Linear(3, width),
+                                        nn.SiLU(),
+                                        nn.Linear(width, width)
+                                        ); # -> 16x16 patches
+        self.vtx_context_length = 2
         self.vtx_pos = nn.Parameter(torch.empty(self.vtx_context_length, width))
         nn.init.normal_(self.vtx_pos, std=0.01)      
 
@@ -51,8 +55,8 @@ class TR(nn.Module):
         image = self.image_embder(image).flatten(-3).permute(0,2,1); # B, N, C
         image = image + self.image_pos.unsqueeze(0);
         vtx = self.vtx_embder(vtx); # B, N, C
-        vtx = torch.max(vtx, dim=1)[0].unsqueeze(1) + torch.mean(vtx, dim=1).unsqueeze(1);
-        vtx = vtx.transpose(1,2) + self.vtx_pos.unsqueeze(0);
+        vtx = torch.cat((torch.max(vtx, dim=1)[0].unsqueeze(1), torch.mean(vtx, dim=1).unsqueeze(1)), dim=1);
+        vtx = vtx + self.vtx_pos.unsqueeze(0);
         seg = self.seg_embder(seg).flatten(-3).permute(0,2,1); # B, N, C
         seg = seg + self.seg_pos.unsqueeze(0);
         ori = self.ln(torch.cat((image, vtx, seg), dim=1));
@@ -79,11 +83,11 @@ class TR(nn.Module):
 def train():
     # Parameters
     learning_rate = 1e-3
-    batch_size = 2
+    batch_size = 8
     num_epochs = 200
-    num_layers = 2
+    num_layers = 3
     width = 256
-    num_head = 2
+    num_head = 4
     mask_ratio = 0.6
 
     # Load dataset
@@ -119,7 +123,7 @@ def train():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model.train()
     model = model.to(device)
-    best_loss = 100000;
+    best_f1 = 0;
     for epoch in range(num_epochs):
         total_loss = 0
         for batch in tqdm(dataloader):
@@ -135,22 +139,28 @@ def train():
         
         print(f"Epoch {epoch + 1}, train Loss: {total_loss / len(dataloader.dataset)}")
 
-
+        labels = []
+        preds = []
         for batch in tqdm(testloader):
             model.eval();
             with torch.no_grad():
                 image, vtx, seg, label = batch
                 image, vtx, seg, label = image.to(device), vtx.to(device), seg.to(device), label.to(device)
-                emb, mask, loss, _ = model(image, vtx, seg, label)
-            total_loss += loss.item()
-            optimizer.step()
+                emb, mask, loss, logit = model(image, vtx, seg, label)
+                labels.append(label.detach().cpu().numpy())
+                preds.append(torch.argmax(logit, dim=1).detach().cpu().numpy())
         
-        print(f"Epoch {epoch + 1}, val Loss: {total_loss / len(dataloader.dataset)}")
+        labels = np.concatenate(labels)
+        preds = np.concatenate(preds)
+        acc = accuracy_score(labels, preds)
+        f1 = f1_score(labels, preds)
+        print(f"Epoch {epoch + 1}, acc: {acc:.4f}, f1: {f1:.4f}")
 
-        if total_loss < best_loss:
-            best_loss = total_loss;
+
+        if f1 > best_f1:
+            best_f1 = f1;
             # Save the model
-            model_path = os.path.join(result_dir, "mae_model.pth")
+            model_path = os.path.join(result_dir, f"mae_model_{f1:.4f}.pth")
             torch.save(model.state_dict(), model_path)
             print(f"Model saved to {model_path}")
 
