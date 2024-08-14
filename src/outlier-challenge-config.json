@@ -1,6 +1,6 @@
 {
     "team_name": "Team_Joris",
-    "method_description": "OOD",
+    "method_description": "MMTR + Align before fusion + MIM@30e",
     "data_types": "Image",
     "data_dir": "/work3/rapa/challenge_data/",
     "result_dir": "results",

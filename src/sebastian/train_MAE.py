@@ -117,7 +117,9 @@ def train():
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs, eta_min=1e-6, verbose=True)
 
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     model.train()
+    model = model.to(device)
     best_loss = 100000;
     for epoch in range(num_epochs):
         total_loss = 0
@@ -125,6 +127,7 @@ def train():
             model.train();
             optimizer.zero_grad()
             image, vtx, seg, label = batch
+            image, vtx, seg, label = image.to(device), vtx.to(device), seg.to(device), label.to(device)
             emb, mask, loss, _ = model(image, vtx, seg, label)
             loss.backward()
             total_loss += loss.item()
@@ -138,6 +141,7 @@ def train():
             model.eval();
             with torch.no_grad():
                 image, vtx, seg, label = batch
+                image, vtx, seg, label = image.to(device), vtx.to(device), seg.to(device), label.to(device)
                 emb, mask, loss, _ = model(image, vtx, seg, label)
             total_loss += loss.item()
             optimizer.step()
