@@ -3,7 +3,7 @@ import json
 import numpy as np
 
 if __name__=="__main__":
-    # probs = np.load('prob.npy')
+    probs = np.load('prob.npy')
     with open('../results/test_files_200.txt', 'r') as f:
         lines = f.read()
     lines = lines.split('\n')[:-1];
