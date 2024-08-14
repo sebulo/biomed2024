@@ -38,7 +38,7 @@ def test():
         data_type='tr'
     )
     dataloader = DataLoader(dataset, batch_size=batch_size, 
-                            shuffle=False, drop_last=False, num_workers=8)
+                            shuffle=False, drop_last=False, num_workers=4)
 
 
     model = TR(num_layers, width, num_head, mask_ratio);

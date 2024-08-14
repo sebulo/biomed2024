@@ -103,13 +103,13 @@ def train():
         file_list=train_ids,
         data_type='tr'  # or 'mesh' or 'segmentation'
     )
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=8)
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4)
     testset = VertebraDataset(
         data_dir=data_dir,
         file_list=val_ids,
         data_type='tr'  # or 'mesh' or 'segmentation'
     )
-    testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=8)
+    testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=4)
 
     model = TR(num_layers, width, num_head, mask_ratio);
     print(model)
