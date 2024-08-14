@@ -32,7 +32,7 @@ class TR(nn.Module):
 
         ## vtx
         self.vtx_embder = nn.Linear(3, width); # -> 16x16 patches
-        self.vtx_context_length = 27
+        self.vtx_context_length = 1
         self.vtx_pos = nn.Parameter(torch.empty(self.vtx_context_length, width))
         nn.init.normal_(self.vtx_pos, std=0.01)      
 
@@ -51,7 +51,7 @@ class TR(nn.Module):
         image = self.image_embder(image).flatten(-3).permute(0,2,1); # B, N, C
         image = image + self.image_pos.unsqueeze(0);
         vtx = self.vtx_embder(vtx); # B, N, C
-        vtx = nn.AdaptiveAvgPool1d(27)(vtx.transpose(1,2)) + nn.AdaptiveMaxPool1d(27)(vtx.transpose(1,2));
+        vtx = torch.max(vtx, dim=1)[0].unsqueeze(1) + nn.mean(vtx, dim=1).unsqueeze(1);
         vtx = vtx.transpose(1,2) + self.vtx_pos.unsqueeze(0);
         seg = self.seg_embder(seg).flatten(-3).permute(0,2,1); # B, N, C
         seg = seg + self.seg_pos.unsqueeze(0);
