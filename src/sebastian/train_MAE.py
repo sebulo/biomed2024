@@ -106,7 +106,8 @@ def train():
         file_list=train_ids,
         data_type='tr'  # or 'mesh' or 'segmentation'
     )
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4)
+    dataloader = DataLoader(dataset, batch_size=batch_size, 
+                            shuffle=True, num_workers=4, drop_last=False)
     testset = VertebraDataset(
         data_dir=data_dir,
         file_list=val_ids,
@@ -116,7 +117,7 @@ def train():
 
     model = TR(num_layers, width, num_head, mask_ratio);
     print(model)
-    optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
+    optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-6)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs, eta_min=1e-6, verbose=True)
 
     device = "cuda" if torch.cuda.is_available() else "cpu"

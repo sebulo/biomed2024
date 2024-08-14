@@ -51,7 +51,7 @@ class VertebraDataset(Dataset):
         elif self.data_type == 'tr':
             # load everything and convert them into tokens
             # Load image data (assuming .png format)
-            label = np.random.rand()<0.5;
+            label = np.random.rand()<0.25;
             if(label):
                 img_path = os.path.join(self.data_dir, "crops", f"{sample_id}_crop.nii.gz")
                 mesh_path = os.path.join(self.data_dir, "surfaces", f"{sample_id}_surface.vtk")
