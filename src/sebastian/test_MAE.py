@@ -24,7 +24,7 @@ def test():
     mask_ratio = 0.6
 
     # Load dataset
-    data_dir = "/work3/rapa/challenge_data/train"
+    data_dir = "/work3/rapa/challenge_data/test"
     # train_list = "test_files_200.txt"
     train_list = "test_files_200.txt"
     result_dir = "/zhome/28/e/143966/ssr/biomed2024/src/results"
