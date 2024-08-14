@@ -17,5 +17,5 @@ if __name__=="__main__":
         "outlier_threshold": str(0.15)
         }  
         ds.append(d)
-    with open('../results/try.json', 'w') as f:
+    with open('../results/test_results.json', 'w') as f:
         json.dump(ds, f)
