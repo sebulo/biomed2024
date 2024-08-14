@@ -13,8 +13,8 @@ if __name__=="__main__":
         d = {
         "scan_id": line,
         "outlier": int(prob>0.15),
-        "outlier_probability": prob,
-        "outlier_threshold": 0.15
+        "outlier_probability": str(prob),
+        "outlier_threshold": str(0.15)
         }  
         ds.append(d)
     with open('../results/try.json', 'w') as f:
