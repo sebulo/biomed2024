@@ -74,10 +74,7 @@ class TR(nn.Module):
         logit = self.classifier(emb[:,0,...])
         loss_cls = nn.CrossEntropyLoss()(logit, label.long());
         loss = 0.2*loss_mlm + loss_cls;
-        return emb, mask, loss
-
-
-
+        return emb, mask, loss, logit
 
 
 def train():
@@ -107,13 +104,13 @@ def train():
         file_list=train_ids,
         data_type='tr'  # or 'mesh' or 'segmentation'
     )
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=8)
     testset = VertebraDataset(
         data_dir=data_dir,
         file_list=val_ids,
         data_type='tr'  # or 'mesh' or 'segmentation'
     )
-    testloader = DataLoader(testset, batch_size=batch_size, shuffle=True)
+    testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=8)
 
     model = TR(num_layers, width, num_head, mask_ratio);
     print(model)
@@ -128,7 +125,7 @@ def train():
             model.train();
             optimizer.zero_grad()
             image, vtx, seg, label = batch
-            emb, mask, loss = model(image, vtx, seg, label)
+            emb, mask, loss, _ = model(image, vtx, seg, label)
             loss.backward()
             total_loss += loss.item()
             optimizer.step()
@@ -141,7 +138,7 @@ def train():
             model.eval();
             with torch.no_grad():
                 image, vtx, seg, label = batch
-                emb, mask, loss = model(image, vtx, seg, label)
+                emb, mask, loss, _ = model(image, vtx, seg, label)
             total_loss += loss.item()
             optimizer.step()
         
