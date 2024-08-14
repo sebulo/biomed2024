@@ -34,8 +34,8 @@ def test():
     dataset = VertebraDataset(
         data_dir=data_dir,
         file_list=train_ids,
-        # data_type='test'  # or 'mesh' or 'segmentation'
-        data_type='tr'
+        data_type='test'  # or 'mesh' or 'segmentation'
+        # data_type='tr'
     )
     dataloader = DataLoader(dataset, batch_size=batch_size, 
                             shuffle=False, drop_last=False, num_workers=4)
