@@ -163,5 +163,9 @@ def train():
             torch.save(model.state_dict(), model_path)
             print(f"Model saved to {model_path}")
 
+        model_path = os.path.join(result_dir, f"mae_model.pth")
+        torch.save(model.state_dict(), model_path)
+        print(f"Model saved to {model_path}")
+
 if __name__ == '__main__':
     train()

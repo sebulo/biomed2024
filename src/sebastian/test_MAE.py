@@ -16,17 +16,17 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 def test():
     # Parameters
     learning_rate = 1e-3
-    batch_size = 4
-    num_epochs = 50
+    batch_size = 8
+    num_epochs = 200
     num_layers = 3
-    width = 128
-    num_head = 2
+    width = 256
+    num_head = 4
     mask_ratio = 0.6
 
     # Load dataset
     data_dir = "/work3/rapa/challenge_data/train"
     # train_list = "test_files_200.txt"
-    train_list = "custom_train_list_100.txt"
+    train_list = "test_files_200.txt"
     result_dir = "/zhome/28/e/143966/ssr/biomed2024/src/results"
     train_id_list_file = os.path.join(result_dir, train_list)
     train_ids = np.loadtxt(str(train_id_list_file), delimiter=",", dtype=str)
@@ -42,7 +42,7 @@ def test():
 
 
     model = TR(num_layers, width, num_head, mask_ratio);
-    model.load_state_dict(torch.load('../results/mae_model.pth'))
+    model.load_state_dict(torch.load('../results/mae_model_0.8031.pth'))
     print(model)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = model.to(device);
