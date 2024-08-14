@@ -7,8 +7,6 @@ import os
 from pathlib import Path
 import argparse
 from tqdm import tqdm
-# from dtu_spine_config import DTUConfig
-
 from VetebraDataset import VertebraDataset
 
 
@@ -44,7 +42,8 @@ class TR(nn.Module):
         self.seg_pos = nn.Parameter(torch.empty(self.seg_context_length, width))
         nn.init.normal_(self.seg_pos, std=0.01)   
 
-        self.decoder = nn.TransformerEncoderLayer(d_model=width, nhead=num_head, batch_first=True)
+        decoder_layer = nn.TransformerDecoderLayer(d_model=width, nhead=num_head, batch_first=True)
+        self.decoder = nn.TransformerDecoder(decoder_layer, num_layers=num_layers)
         self.classifier = nn.Linear(width, 2);
 
     def forward(self, image, vtx, seg, label, **kwargs):
@@ -67,24 +66,24 @@ class TR(nn.Module):
             mask = None
         emb = torch.cat((self.token.unsqueeze(0) + torch.zeros(emb.shape[0], 1, emb.shape[-1], dtype=emb.dtype, device=emb.device), emb), dim=1);
         emb = self.tr(emb);
-        rec = self.decoder(emb);
+        rec = self.decoder(ori, emb);
         rec = self.ln(rec)
         # mlm loss 
         loss_mlm = ((rec[:,1:,:] - ori)**2).flatten().mean();
         logit = self.classifier(emb[:,0,...])
         loss_cls = nn.CrossEntropyLoss()(logit, label.long());
-        loss = 0.2*loss_mlm + loss_cls;
+        loss = 0.5*loss_mlm + loss_cls;
         return emb, mask, loss, logit
 
 
 def train():
     # Parameters
     learning_rate = 1e-3
-    batch_size = 4
-    num_epochs = 50
+    batch_size = 8
+    num_epochs = 200
     num_layers = 3
-    width = 128
-    num_head = 2
+    width = 256
+    num_head = 4
     mask_ratio = 0.6
 
     # Load dataset

@@ -12,6 +12,7 @@ from train_MAE import TR
 from VetebraDataset import VertebraDataset
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 
+
 def test():
     # Parameters
     learning_rate = 1e-3
@@ -63,7 +64,6 @@ def test():
     preds = probs > 0.5;
     print(preds)
     print(accuracy_score(labels, preds), precision_score(labels, preds), recall_score(labels, preds), f1_score(labels, preds))
-
 
 if __name__ == '__main__':
     test()
