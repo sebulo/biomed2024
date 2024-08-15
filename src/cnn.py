@@ -21,14 +21,21 @@ class CNN(L.LightningModule):
         
         # Model architecture
         self.net = []
+        self.net.append(nn.Conv2d(2, 3, 3))
         self.net.append(models.resnet50(weights=models.ResNet50_Weights.DEFAULT))
         self.net.append(nn.ReLU())
-        self.net.append(nn.Linear(1000, 1))
         self.net = nn.Sequential(*self.net)
+
+        self.linear = nn.Linear(1000, 1)
+
+    def features(self, X):
+
+        return self.net(X)
         
     def forward(self, X):
         
-        prediction = self.net(X)
+        features = self.net(X)
+        prediction = self.linear(features)
 
         return prediction
     
