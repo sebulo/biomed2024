@@ -87,11 +87,11 @@ def train():
     num_layers = 3
     width = 256
     num_head = 4
-    mask_ratio = 0.3
+    mask_ratio = 0.2
 
     # Load dataset
     data_dir = "/work3/rapa/challenge_data/train"
-    train_list = "custom_train_list_100.txt"
+    train_list = "train_files.txt"
     result_dir = "/zhome/28/e/143966/ssr/biomed2024/src/results"
     train_id_list_file = os.path.join(result_dir, train_list)
     train_ids = np.loadtxt(str(train_id_list_file), delimiter=",", dtype=str)
