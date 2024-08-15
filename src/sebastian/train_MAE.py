@@ -74,10 +74,10 @@ class TR(nn.Module):
         rec = self.ln(rec)
         # mlm loss 
         loss_mlm = ((rec - ori)**2).flatten().mean();
-        logit = self.classifier(emb[:,0,...])
-        loss_cls = nn.CrossEntropyLoss()(logit, label.long());
-        loss = loss_mlm + loss_cls;
-        return emb, mask, loss, logit
+        # logit = self.classifier(emb[:,0,...])
+        # loss_cls = nn.CrossEntropyLoss()(logit, label.long());
+        loss = loss_mlm;
+        return emb, mask, loss, rec
 
 def train():
     # Parameters
@@ -123,7 +123,7 @@ def train():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model.train()
     model = model.to(device)
-    best_f1 = 0;
+    best_f1 = 10000;
     for epoch in range(num_epochs):
         total_loss = 0
         for batch in tqdm(dataloader):
@@ -139,25 +139,20 @@ def train():
         
         print(f"Epoch {epoch + 1}, train Loss: {total_loss / len(dataloader.dataset)}")
 
-        labels = []
         preds = []
         for batch in tqdm(testloader):
             model.eval();
             with torch.no_grad():
                 image, vtx, seg, label = batch
                 image, vtx, seg, label = image.to(device), vtx.to(device), seg.to(device), label.to(device)
-                emb, mask, loss, logit = model(image, vtx, seg, label)
-                labels.append(label.detach().cpu().numpy())
-                preds.append(torch.argmax(logit, dim=1).detach().cpu().numpy())
+                emb, mask, loss, rec = model(image, vtx, seg, label)
+                preds.append(loss.item())
         
-        labels = np.concatenate(labels)
-        preds = np.concatenate(preds)
-        acc = accuracy_score(labels, preds)
-        f1 = f1_score(labels, preds)
-        print(f"Epoch {epoch + 1}, acc: {acc:.4f}, f1: {f1:.4f}")
+        f1 = np.mean(preds)
+        print(f"Epoch {epoch + 1}, rec loss: {f1:.4f}")
 
 
-        if f1 > best_f1:
+        if f1 < best_f1:
             best_f1 = f1;
             # Save the model
             model_path = os.path.join(result_dir, f"mae_model_{f1:.4f}.pth")
