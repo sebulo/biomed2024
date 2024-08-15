@@ -40,28 +40,22 @@ def test():
 
 
     model = TR(num_layers, width, num_head, mask_ratio);
-    model.load_state_dict(torch.load('../results/mae_model_0.8000.pth'))
+    model.load_state_dict(torch.load('../results/mae_model.pth'))
     print(model)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = model.to(device);
     model.eval()
-    probs = []
+    embs = []
     labels = []
     for batch in tqdm(dataloader):
         with torch.no_grad():
             image, vtx, seg, label = batch
             image, vtx, seg, label = image.to(device), vtx.to(device), seg.to(device), label.to(device)
-            emb, mask, loss, logit = model(image, vtx, seg, label)
-            probs.append(torch.softmax(logit, dim=-1)[:,-1].detach().cpu().numpy())
-            labels.append(label.detach().cpu().numpy())
-    probs = np.concatenate(probs)
-    labels = np.concatenate(labels)
-    print(probs.shape)
-    print(labels.shape)
-    np.save('prob.npy', probs)
-    preds = probs > 0.15;
-    print(preds)
-    print(accuracy_score(labels, preds), precision_score(labels, preds), recall_score(labels, preds), f1_score(labels, preds))
-
+            emb, mask, loss, _ = model(image, vtx, seg, label)
+            embs.append(emb.detach().cpu().numpy())
+    embs = np.concatenate(embs)
+    print(embs.shape)
+    np.save('embs.npy', embs)
+    
 if __name__ == '__main__':
     test()
